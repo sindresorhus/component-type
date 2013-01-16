@@ -20,6 +20,7 @@ module.exports = function(val){
     case '[object RegExp]': return 'regexp';
     case '[object Arguments]': return 'arguments';
     case '[object Array]': return 'array';
+    case '[object String]': return 'string';
   }
 
   if (val === null) return 'null';
