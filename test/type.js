@@ -26,3 +26,4 @@ assert('regexp', /asdf/);
 assert('regexp', new RegExp('weee'));
 assert('function', function(){});
 assert('arguments', (function(){ return arguments })());
+assert('element', document.createElement('div'));
