@@ -1,7 +1,4 @@
 
-test:
-	@node test/type
-
 build: components index.js
 	@component build
 
@@ -10,5 +7,8 @@ components:
 
 clean:
 	rm -fr build components template.js
+
+test:
+	open test/index.html
 
 .PHONY: clean test

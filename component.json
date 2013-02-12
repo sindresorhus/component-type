@@ -4,6 +4,9 @@
   "version": "0.0.1",
   "keywords": ["typeof", "type", "utility"],
   "dependencies": {},
+  "development": {
+    "component/assert": "*"
+  },
   "scripts": [
     "index.js"
   ]

@@ -25,6 +25,7 @@ module.exports = function(val){
 
   if (val === null) return 'null';
   if (val === undefined) return 'undefined';
+  if (val && val.nodeType === 1) return 'element';
   if (val === Object(val)) return 'object';
 
   return typeof val;
