@@ -1,9 +1,9 @@
 
 build: components index.js
-	@component build
+	@component build --dev
 
 components:
-	@Component install
+	@Component install --dev
 
 clean:
 	rm -fr build components template.js
