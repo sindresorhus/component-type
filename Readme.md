@@ -1,4 +1,3 @@
-
 # type
 
   Type assertions aka less-broken `typeof`.
@@ -27,6 +26,7 @@ type(type) == 'function'
 type(/asdf/) == 'regexp'
 type((function(){ return arguments })()) == 'arguments'
 type([]) == 'array'
+type(document.createElement('div')) == 'element'
 ```
 
 ## License
