@@ -1,9 +1,10 @@
 
 /**
- * toString ref.
+ * refs
  */
 
 var toString = Object.prototype.toString;
+var Element = typeof window != 'undefined' ? window.Element : Function;
 
 /**
  * Return the type of `val`.
