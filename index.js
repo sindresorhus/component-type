@@ -33,4 +33,5 @@ var types = {
   '[object Undefined]': 'undefined',
   '[object Number]': 'number',
   '[object Boolean]': 'boolean',
+  '[object Object]': 'object'
 }
