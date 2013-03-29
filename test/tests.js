@@ -56,4 +56,8 @@ describe('type', function(){
   it('should match elements', function(){
     assert('element' === type(document.createElement('div')));
   });
+
+  it('should match textnode\'s', function(){
+    assert('textnode' === type(document.createTextNode('div')));
+  });
 });
