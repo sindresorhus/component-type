@@ -15,8 +15,8 @@ var Element = typeof window != 'undefined' ? window.Element : Function;
  */
 
 module.exports = function(v){
-  var type = types[toString.call(v)]
-  if (type) return type
+  var type = types[toString.call(v)];
+  if (type) return type;
   if (v instanceof Element) return 'element';
 
   return typeof v;
@@ -33,5 +33,6 @@ var types = {
   '[object Undefined]': 'undefined',
   '[object Number]': 'number',
   '[object Boolean]': 'boolean',
-  '[object Object]': 'object'
+  '[object Object]': 'object',
+  '[object Text]': 'textnode'
 }
