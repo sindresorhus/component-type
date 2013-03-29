@@ -1,9 +1,10 @@
 
 /**
- * toString ref.
+ * refs
  */
 
 var toString = Object.prototype.toString;
+var Element = typeof window != 'undefined' ? window.Element : Function;
 
 /**
  * Return the type of `val`.
@@ -13,20 +14,25 @@ var toString = Object.prototype.toString;
  * @api public
  */
 
-module.exports = function(val){
-  switch (toString.call(val)) {
-    case '[object Function]': return 'function';
-    case '[object Date]': return 'date';
-    case '[object RegExp]': return 'regexp';
-    case '[object Arguments]': return 'arguments';
-    case '[object Array]': return 'array';
-    case '[object String]': return 'string';
-  }
+module.exports = function(v){
+  var type = types[toString.call(v)];
+  if (type) return type;
+  if (v instanceof Element) return 'element';
 
-  if (val === null) return 'null';
-  if (val === undefined) return 'undefined';
-  if (val && val.nodeType === 1) return 'element';
-  if (val === Object(val)) return 'object';
-
-  return typeof val;
+  return typeof v;
 };
+
+var types = {
+  '[object Function]': 'function',
+  '[object Date]': 'date',
+  '[object RegExp]': 'regexp',
+  '[object Arguments]': 'arguments',
+  '[object Array]': 'array',
+  '[object String]': 'string',
+  '[object Null]': 'null',
+  '[object Undefined]': 'undefined',
+  '[object Number]': 'number',
+  '[object Boolean]': 'boolean',
+  '[object Object]': 'object',
+  '[object Text]': 'textnode'
+}
