@@ -1,4 +1,3 @@
-
 /**
  * toString ref.
  */
@@ -17,6 +16,7 @@ module.exports = function(val){
   switch (toString.call(val)) {
     case '[object Function]': return 'function';
     case '[object Date]': return 'date';
+    case '[object Boolean]': return 'boolean';
     case '[object RegExp]': return 'regexp';
     case '[object Arguments]': return 'arguments';
     case '[object Array]': return 'array';
