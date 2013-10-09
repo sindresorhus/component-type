@@ -2,7 +2,15 @@
   "name": "component-type",
   "description": "Cross-browser type assertions (less broken typeof)",
   "version": "1.0.0",
-  "keywords": ["typeof", "type", "utility"],
+  "keywords": [
+    "typeof",
+    "type",
+    "utility"
+  ],
   "dependencies": {},
-  "main": "index.js"
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/component/type.git"
+  }
 }
