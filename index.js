@@ -1,4 +1,3 @@
-
 /**
  * toString ref.
  */
@@ -20,13 +19,11 @@ module.exports = function(val){
     case '[object RegExp]': return 'regexp';
     case '[object Arguments]': return 'arguments';
     case '[object Array]': return 'array';
-    case '[object String]': return 'string';
   }
 
   if (val === null) return 'null';
   if (val === undefined) return 'undefined';
   if (val && val.nodeType === 1) return 'element';
-  if (val === Object(val)) return 'object';
-
-  return typeof val;
+  
+  return typeof val.valueOf();
 };
