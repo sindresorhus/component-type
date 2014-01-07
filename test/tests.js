@@ -6,17 +6,16 @@ describe('type', function(){
     function Foo(){}
     assert('object' === type({}));
     assert('object' === type(new Foo));
-    assert('object' === type(new Boolean(true)));
-    assert('object' === type(new Number(123)));
-    // assert('object' === type(new String('whoop')));
   });
 
   it('should match numbers', function(){
     assert('number' === type(12));
+    assert('number' === type(new Number(123)));
   });
 
   it('should match strings', function(){
     assert('string' === type("test"));
+    assert('string' === type(new String('whoop')));
   });
 
   it('should match dates', function(){
@@ -26,6 +25,7 @@ describe('type', function(){
   it('should match booleans', function(){
     assert('boolean' === type(true));
     assert('boolean' === type(false));
+    assert('boolean' === type(new Boolean(true)));
   });
 
   it('should match null', function(){
@@ -33,11 +33,13 @@ describe('type', function(){
   });
 
   it('should match undefined', function(){
+    assert('undefined' === type());
     assert('undefined' === type(undefined));
   });
 
   it('should match arrays', function(){
     assert('array' === type([]));
+    assert('array' === type(new Array()));
   });
 
   it('should match regexps', function(){
@@ -50,7 +52,7 @@ describe('type', function(){
   });
 
   it('should match arguments', function(){
-    assert('arguments' === type((function(){ return arguments })()));
+    assert('arguments' === type(arguments));
   });
 
   it('should match elements', function(){
