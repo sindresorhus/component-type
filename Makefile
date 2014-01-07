@@ -3,7 +3,7 @@ build: components index.js
 	@component build --dev
 
 components:
-	@Component install --dev
+	@component install --dev
 
 clean:
 	rm -fr build components template.js
