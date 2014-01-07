@@ -22,21 +22,8 @@ module.exports = function(val){
 
   if (val === null) return 'null';
   if (val === undefined) return 'undefined';
-  if (isNaN(val)) return 'nan';
+  if (val !== val) return 'NaN';
   if (val && val.nodeType === 1) return 'element';
 
   return typeof val.valueOf();
 };
-
-
-/**
- * Tests whether the input `val` is `NaN`
- *
- * @param {Mixed} val
- * @return {Boolean}
- * @api private
- */
-
-function isNaN(val) {
-  return typeof val === "number" && val !== +val;
-}

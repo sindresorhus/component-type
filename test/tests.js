@@ -17,7 +17,7 @@ describe('type', function(){
   });
 
   it('should match NaN', function () {
-    assert('nan' === type(NaN));
+    assert('NaN' === type(NaN));
   });
 
   it('should match strings', function(){
