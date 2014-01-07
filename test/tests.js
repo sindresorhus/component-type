@@ -10,7 +10,14 @@ describe('type', function(){
 
   it('should match numbers', function(){
     assert('number' === type(12));
+    assert('number' === type(1.0));
+    assert('number' === type(-5));
     assert('number' === type(new Number(123)));
+    assert('number' === type(Infinity));
+  });
+
+  it('should match NaN', function () {
+    assert('nan' === type(NaN));
   });
 
   it('should match strings', function(){
