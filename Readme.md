@@ -27,6 +27,7 @@ type(/asdf/) == 'regexp'
 type((function(){ return arguments })()) == 'arguments'
 type([]) == 'array'
 type(document.createElement('div')) == 'element'
+type(new Error('Ups! Something wrong...')) == 'error'
 ```
 
 ## License
