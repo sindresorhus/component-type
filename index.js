@@ -18,6 +18,7 @@ module.exports = function(val){
     case '[object RegExp]': return 'regexp';
     case '[object Arguments]': return 'arguments';
     case '[object Array]': return 'array';
+    case '[object Error]': return 'error';
   }
 
   if (val === null) return 'null';

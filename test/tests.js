@@ -58,4 +58,8 @@ describe('type', function(){
   it('should match elements', function(){
     assert('element' === type(document.createElement('div')));
   });
+
+  it('should match errors', function(){
+    assert('error' === type(new Error('Ups!')));
+  });
 });
