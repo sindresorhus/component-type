@@ -26,5 +26,9 @@ module.exports = function(val){
   if (val !== val) return 'nan';
   if (val && val.nodeType === 1) return 'element';
 
-  return typeof val.valueOf();
+  val = val.valueOf
+    ? val.valueOf()
+    : Object.prototype.valueOf.apply(val)
+
+  return typeof val;
 };
