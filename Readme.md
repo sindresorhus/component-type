@@ -1,3 +1,4 @@
+
 # type
 
   Type assertions aka less-broken `typeof`.
@@ -27,7 +28,7 @@ type(/asdf/) == 'regexp'
 type((function(){ return arguments })()) == 'arguments'
 type([]) == 'array'
 type(document.createElement('div')) == 'element'
-type(NaN) == 'NaN'
+type(NaN) == 'nan'
 type(new Error('Ups! Something wrong...')) == 'error'
 ```
 
