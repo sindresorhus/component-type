@@ -1,7 +1,7 @@
 {
   "name": "type",
   "description": "Cross-browser type assertions (less broken typeof)",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "keywords": ["typeof", "type", "utility"],
   "dependencies": {},
   "development": {
