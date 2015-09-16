@@ -26,6 +26,8 @@ module.exports = function(val){
   if (val !== val) return 'nan';
   if (val && val.nodeType === 1) return 'element';
 
+  if (typeof Buffer != 'undefined' && Buffer.isBuffer(val)) return 'buffer';
+
   val = val.valueOf
     ? val.valueOf()
     : Object.prototype.valueOf.apply(val)

@@ -30,6 +30,7 @@ type([]) == 'array'
 type(document.createElement('div')) == 'element'
 type(NaN) == 'nan'
 type(new Error('Ups! Something wrong...')) == 'error'
+type(new Buffer) == 'buffer'
 ```
 
 ## License

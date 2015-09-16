@@ -69,4 +69,12 @@ describe('type', function(){
   it('should match errors', function(){
     assert('error' === type(new Error('Ups!')));
   });
+
+  it('should match buffers', function(){
+    var b = {};
+    assert('object' === type(b));
+    window.Buffer = { isBuffer: function(val){ return val === b } };
+    assert('buffer' === type(b));
+    delete window.Buffer;
+  });
 });
