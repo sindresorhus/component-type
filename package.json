@@ -9,6 +9,9 @@
   ],
   "dependencies": {},
   "main": "index.js",
+  "browser": {
+    "buffer": false
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
