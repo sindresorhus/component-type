@@ -26,11 +26,21 @@ module.exports = function(val){
   if (val !== val) return 'nan';
   if (val && val.nodeType === 1) return 'element';
 
-  if (typeof Buffer != 'undefined' && Buffer.isBuffer(val)) return 'buffer';
+  if (isBuffer(val)) return 'buffer';
 
   val = val.valueOf
     ? val.valueOf()
-    : Object.prototype.valueOf.apply(val)
+    : Object.prototype.valueOf.apply(val);
 
   return typeof val;
 };
+
+// code borrowed from https://github.com/feross/is-buffer/blob/master/index.js
+function isBuffer(obj) {
+  return !!(obj != null &&
+    (obj._isBuffer || // For Safari 5-7 (missing Object.prototype.constructor)
+      (obj.constructor &&
+      typeof obj.constructor.isBuffer === 'function' &&
+      obj.constructor.isBuffer(obj))
+    ))
+}

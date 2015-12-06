@@ -73,8 +73,9 @@ describe('type', function(){
   it('should match buffers', function(){
     var b = {};
     assert('object' === type(b));
-    window.Buffer = { isBuffer: function(val){ return val === b } };
-    assert('buffer' === type(b));
-    delete window.Buffer;
+    if (window.Buffer) {
+      var val = new Buffer(4);
+      assert('buffer' === type(val));
+    }
   });
 });
