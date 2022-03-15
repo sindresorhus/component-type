@@ -28,7 +28,7 @@ module.exports = function(val){
 
   if (isBuffer(val)) return 'buffer';
 
-    if (typeof (val.valueOf === 'function')) {
+    if (typeof (val.valueOf) === 'function') {
         val = val.valueOf
             ? val.valueOf()
             : Object.prototype.valueOf.apply(val);

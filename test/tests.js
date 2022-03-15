@@ -78,4 +78,9 @@ describe('type', function(){
       assert('buffer' === type(val));
     }
   });
+  it('should match mangled', function () {
+      var b = new Object;
+      b.valueOf = "mangled";
+      assert("mangled" === type(b));
+    });
 });
