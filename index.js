@@ -28,11 +28,17 @@ module.exports = function(val){
 
   if (isBuffer(val)) return 'buffer';
 
-  val = val.valueOf
-    ? val.valueOf()
-    : Object.prototype.valueOf.apply(val);
+    if (typeof (val.valueOf === 'function')) {
+        val = val.valueOf
+            ? val.valueOf()
+            : Object.prototype.valueOf.apply(val);
 
-  return typeof val;
+        return typeof val;
+
+    }
+    else {
+        return "mangled";
+    }
 };
 
 // code borrowed from https://github.com/feross/is-buffer/blob/master/index.js
