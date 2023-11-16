@@ -1,46 +1,74 @@
-/**
- * toString ref.
- */
+const {toString} = Object.prototype;
 
-var toString = Object.prototype.toString;
+const NODE_TYPE_ELEMENT = 1;
 
-/**
- * Return the type of `val`.
- *
- * @param {Mixed} val
- * @return {String}
- * @api public
- */
+const DOM_PROPERTIES_TO_CHECK = [
+	'innerHTML',
+	'ownerDocument',
+	'style',
+	'attributes',
+	'nodeValue',
+];
 
-module.exports = function(val){
-  switch (toString.call(val)) {
-    case '[object Date]': return 'date';
-    case '[object RegExp]': return 'regexp';
-    case '[object Arguments]': return 'arguments';
-    case '[object Array]': return 'array';
-    case '[object Error]': return 'error';
-  }
-
-  if (val === null) return 'null';
-  if (val === undefined) return 'undefined';
-  if (val !== val) return 'nan';
-  if (val && val.nodeType === 1) return 'element';
-
-  if (isBuffer(val)) return 'buffer';
-
-  val = val.valueOf
-    ? val.valueOf()
-    : Object.prototype.valueOf.apply(val);
-
-  return typeof val;
-};
-
-// code borrowed from https://github.com/feross/is-buffer/blob/master/index.js
-function isBuffer(obj) {
-  return !!(obj != null &&
-    (obj._isBuffer || // For Safari 5-7 (missing Object.prototype.constructor)
-      (obj.constructor &&
-      typeof obj.constructor.isBuffer === 'function' &&
-      obj.constructor.isBuffer(obj))
-    ))
+function isObject(value) {
+	return value !== null && typeof value === 'object';
 }
+
+function isHtmlElement(value) {
+	return isObject(value)
+		&& value.nodeType === NODE_TYPE_ELEMENT
+		&& typeof value.nodeName === 'string'
+		&& DOM_PROPERTIES_TO_CHECK.every(property => property in value);
+}
+
+module.exports = function (value) {
+	if (value === undefined) {
+		return 'undefined';
+	}
+
+	if (value === null) {
+		return 'null';
+	}
+
+	if (Number.isNaN(value)) {
+		return 'nan';
+	}
+
+	if (Array.isArray(value)) {
+		return 'array';
+	}
+
+	switch (toString.call(value)) {
+		case '[object Date]': {
+			return 'date';
+		}
+
+		case '[object RegExp]': {
+			return 'regexp';
+		}
+
+		case '[object Arguments]': {
+			return 'arguments';
+		}
+
+		case '[object Error]': {
+			return 'error';
+		}
+
+		// No default
+	}
+
+	if (value && isHtmlElement(value)) {
+		return 'element';
+	}
+
+	if (value && value instanceof Uint8Array && value.constructor.name === 'Buffer') {
+		return 'buffer';
+	}
+
+	if (typeof value.valueOf === 'function') {
+		value = value.valueOf?.() ?? Object.prototype.valueOf.apply(value);
+	}
+
+	return typeof value;
+};

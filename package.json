@@ -1,17 +1,41 @@
 {
-  "name": "component-type",
-  "description": "Cross-browser type assertions (less broken typeof)",
-  "version": "1.2.2",
-  "keywords": [
-    "typeof",
-    "type",
-    "utility"
-  ],
-  "dependencies": {},
-  "main": "index.js",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sindresorhus/component-type.git"
-  }
+	"name": "component-type",
+	"version": "1.2.2",
+	"description": "Type assertions aka less-broken `typeof`",
+	"license": "MIT",
+	"repository": "sindresorhus/component-type",
+	"funding": "https://github.com/sponsors/sindresorhus",
+	"exports": {
+		"types": "./index.d.ts",
+		"default": "./index.js"
+	},
+	"main": "./index.js",
+	"types": "./index.d.ts",
+	"sideEffects": false,
+	"engines": {
+		"node": ">=18"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js",
+		"index.d.ts"
+	],
+	"keywords": [
+		"typeof",
+		"type",
+		"types",
+		"check",
+		"utility"
+	],
+	"devDependencies": {
+		"ava": "^5.3.1",
+		"xo": "^0.56.0"
+	},
+	"xo": {
+		"rules": {
+			"unicorn/prefer-module": "off"
+		}
+	}
 }
