@@ -12,6 +12,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/component/type.git"
+    "url": "https://github.com/sindresorhus/component-type.git"
   }
 }
